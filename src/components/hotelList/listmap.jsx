@@ -39,28 +39,41 @@ const ListMap = (props) => {  //we can pass props as parameter else directly pas
                         <div className="col-sm-3">
                             <img className='img-thumbnail' src={HotelRoom} alt='no imge' />
                         </div>
-                        <div className="col-sm-7">
-                            <h5>{object.HotelName}</h5>
-                            <div>
-                                {icons.map((_, index) => (
-                                    <StarRounded className='star-color' key={index} />
-                                ))}
+                        <div className="col-sm-9">
+                            <div className='row'>
+                                <div className="col-sm-9">
+                                    <h5>{object.HotelName}</h5>
+                                    <div>
+                                        {icons.map((_, index) => (
+                                            <StarRounded className='star-color' key={index} />
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="col-sm-3 d-flex flex-column justify-content-between">
+                                    {!isMobile ? <>
+                                        <h6 style={{ color: 'gray' }}>From</h6>
+                                        <h5>{object.DisplayCurrencyCode} {parseFloat(object.TotalCharges).toFixed(2)}</h5>
+                                    </> : <div className="d-flex justify-content-between">
+                                        <h6 style={{ color: 'gray' }}>From</h6>
+                                        <h5>{object.DisplayCurrencyCode} {parseFloat(object.TotalCharges).toFixed(2)}</h5>
+                                    </div>}
+                                </div>
                             </div>
-                            <h6>{object.Address}</h6>
-                            <h6>{object.ShortDescription}</h6>
-                        </div>
-                        <div className="col-sm-2 d-flex flex-column justify-content-between">
-                            <div>
-                                {!isMobile ? <>
-                                    <h6 style={{ color: 'gray' }}>From</h6>
-                                    <h5>{object.DisplayCurrencyCode} {object.TotalCharges}</h5>
-                                </> : <div className="d-flex justify-content-between">
-                                    <h6 style={{ color: 'gray' }}>From</h6>
-                                    <h5>{object.DisplayCurrencyCode} {parseFloat(object.TotalCharges).toFixed(2)}</h5>
-                                </div>}
+                            <div className="row">
+                                <div className="col-sm-9">
+                                    <h6>{object.Address}</h6>
+                                </div>
                             </div>
-                            <button className='check-room-button'>Choose Room</button>
+                            <div className='row'>
+                                <div className="col-sm-9">
+                                    <h6>{object.ShortDescription}</h6>
+                                </div>
+                                <div className="col-sm-3 d-flex flex-column justify-content-between">
+                                    <button className='check-room-button'>Choose Room</button>
+                                </div>
+                            </div>
                         </div>
+                        
                     </div>
                 </Card>)
             })}
@@ -80,3 +93,33 @@ const ListMap = (props) => {  //we can pass props as parameter else directly pas
 }
 
 export default ListMap
+
+
+
+
+
+
+
+
+{/* <div className="col-sm-7">
+        <h5>{object.HotelName}</h5>
+        <div>
+            {icons.map((_, index) => (
+                <StarRounded className='star-color' key={index} />
+            ))}
+        </div>
+        <h6>{object.Address}</h6>
+        <h6>{object.ShortDescription}</h6>
+    </div>
+    <div className="col-sm-2 d-flex flex-column justify-content-between">
+        <div>
+            {!isMobile ? <>
+                <h6 style={{ color: 'gray' }}>From</h6>
+                <h5>{object.DisplayCurrencyCode} {object.TotalCharges}</h5>
+            </> : <div className="d-flex justify-content-between">
+                <h6 style={{ color: 'gray' }}>From</h6>
+                <h5>{object.DisplayCurrencyCode} {parseFloat(object.TotalCharges).toFixed(2)}</h5>
+            </div>}
+        </div>
+        <button className='check-room-button'>Choose Room</button>
+    </div> */}
